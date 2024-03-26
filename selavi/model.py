@@ -111,8 +111,8 @@ def get_audio_feature_extractor(aud_base_arch='resnet18', pretrained=False, dura
         return model
     elif aud_base_arch == 'resnet9':
         print('resnet9, duration:', duration)
-        model = torchvision.models.resnet._resnet('resnet9', torchvision.models.resnet.BasicBlock, 
-            [1,1,1,1], pretrained=False,progress=False)
+        model = torchvision.models.resnet._resnet(torchvision.models.resnet.BasicBlock, 
+            [1,1,1,1], None, progress=False)
 
         model.conv1 = torch.nn.Conv2d(
             1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False
